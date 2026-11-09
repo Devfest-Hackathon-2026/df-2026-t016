@@ -57,8 +57,8 @@
   <text x="868" y="302" class="sub">記録・画像・証拠一式（無いときだけ作る）</text>
   <rect x="850" y="332" width="300" height="80" class="box"/>
   <text x="868" y="360" class="title">Gemini（Vertex AI）</text>
-  <text x="868" y="382" class="sub">依頼主向けの補足説明だけ</text>
-  <text x="868" y="400" class="sub">判定には使わない・失敗しても提出できる</text>
+  <text x="868" y="382" class="sub">見返す箇所の注意点（途中画像の見比べ）</text>
+  <text x="868" y="400" class="sub">確認の結果は変えない・失敗しても提出できる</text>
   <path d="M726,190 L846,125" class="line"/>
   <path d="M726,212 L846,205" class="line"/>
   <path d="M726,240 L846,285" class="line"/>
