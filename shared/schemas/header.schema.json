@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawtrace.example/schemas/header.schema.json",
+  "title": "チャンクのヘッダ",
+  "description": "録画拡張が作り、端末の鍵で署名する。4KB 以下（スキーマの外で確かめる）。未知のフィールドは拒否しない。",
+  "type": "object",
+  "required": ["v", "sid", "seq", "prev", "tStart", "tEnd", "body", "bodyLen", "stats", "final"],
+  "properties": {
+    "v": { "const": 1 },
+    "sid": { "$ref": "#/$defs/sid" },
+    "seq": { "type": "integer", "minimum": 0, "maximum": 4999 },
+    "prev": { "$ref": "#/$defs/hex64", "description": "seq=0 は開始証のバイト列のハッシュ、以降は前のヘッダのハッシュ" },
+    "tStart": { "$ref": "#/$defs/time" },
+    "tEnd": { "$ref": "#/$defs/time" },
+    "body": { "$ref": "#/$defs/hex64" },
+    "bodyLen": { "type": "integer", "minimum": 1, "maximum": 65536 },
+    "images": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "start": { "$ref": "#/$defs/hex64" },
+        "end": { "$ref": "#/$defs/hex64" },
+        "whole": { "$ref": "#/$defs/hex64" }
+      },
+      "additionalProperties": false
+    },
+    "stats": {
+      "type": "object",
+      "required": ["fps", "changedTiles", "resend", "memMB", "degraded"],
+      "properties": {
+        "fps": { "type": "integer", "minimum": 0 },
+        "changedTiles": { "type": "integer", "minimum": 0, "maximum": 768 },
+        "resend": { "type": "boolean" },
+        "memMB": { "type": "integer", "minimum": 0 },
+        "degraded": { "type": "boolean" }
+      }
+    },
+    "final": { "type": "boolean" }
+  },
+  "$defs": {
+    "hex64": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "sid": { "type": "string", "pattern": "^s_[A-Za-z0-9_-]{16}$" },
+    "time": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$" }
+  }
+}

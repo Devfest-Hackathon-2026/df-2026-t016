@@ -1,0 +1,339 @@
+{
+ "integrity": {
+  "status": "ok",
+  "problems": []
+ },
+ "reception": {
+  "status": "aborted",
+  "first": "2026-11-05T01:00:05.040Z",
+  "last": "2026-11-06T02:02:30.398Z",
+  "gaps": [
+   {
+    "session": 1,
+    "after": 15,
+    "sec": 64.889
+   }
+  ],
+  "activeChunks": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "editorMs": 450000,
+  "activeMs": 283500,
+  "sessions": [
+   {
+    "sid": "s_8rqGjs4d6Vi8ht8X",
+    "status": "completed",
+    "first": "2026-11-05T01:00:05.040Z",
+    "last": "2026-11-05T01:02:30.099Z",
+    "gaps": [],
+    "activeChunks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "editorMs": 150000,
+    "activeMs": 93500
+   },
+   {
+    "sid": "s_VAxvBDaDolOIJVKi",
+    "status": "aborted",
+    "first": "2026-11-06T01:00:05.243Z",
+    "last": "2026-11-06T01:03:30.118Z",
+    "gaps": [
+     {
+      "after": 15,
+      "sec": 64.889
+     }
+    ],
+    "activeChunks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "editorMs": 150000,
+    "activeMs": 94500
+   },
+   {
+    "sid": "s_nzVYmcReDfeGWt98",
+    "status": "completed",
+    "first": "2026-11-06T02:00:05.390Z",
+    "last": "2026-11-06T02:02:30.398Z",
+    "gaps": [],
+    "activeChunks": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "editorMs": 150000,
+    "activeMs": 95500
+   }
+  ]
+ },
+ "images": {
+  "start": "ok",
+  "end": "ok"
+ },
+ "match": {
+  "result": "match",
+  "score": 0.94,
+  "reason": null
+ },
+ "declaration": {
+  "text": "この作品は手描きで制作しました（AI による生成・補助は使っていません）。",
+  "acceptedAt": "2026-11-06T02:04:30.398Z"
+ },
+ "unverified": [],
+ "whole": {
+  "shown": true,
+  "items": [
+   {
+    "session": 0,
+    "seq": 9,
+    "minutes": 1,
+    "status": "ok"
+   },
+   {
+    "session": 0,
+    "seq": 29,
+    "minutes": 2,
+    "status": "ok"
+   },
+   {
+    "session": 1,
+    "seq": 0,
+    "minutes": 0,
+    "status": "ok"
+   },
+   {
+    "session": 1,
+    "seq": 20,
+    "minutes": 3,
+    "status": "ok"
+   },
+   {
+    "session": 2,
+    "seq": 10,
+    "minutes": 1,
+    "status": "ok"
+   },
+   {
+    "session": 2,
+    "seq": 29,
+    "minutes": 2,
+    "status": "ok"
+   }
+  ],
+  "links": [
+   {
+    "from": 0,
+    "to": 1,
+    "result": "linked",
+    "kept": 0.89,
+    "reason": null
+   },
+   {
+    "from": 1,
+    "to": 2,
+    "result": "linked",
+    "kept": 1.0,
+    "reason": null
+   },
+   {
+    "from": 2,
+    "to": 3,
+    "result": "linked",
+    "kept": 0.81,
+    "reason": null
+   },
+   {
+    "from": 3,
+    "to": 4,
+    "result": "linked",
+    "kept": 0.86,
+    "reason": null
+   },
+   {
+    "from": 4,
+    "to": 5,
+    "result": "linked",
+    "kept": 0.97,
+    "reason": null
+   }
+  ],
+  "toPng": {
+   "result": "linked",
+   "kept": 1.0,
+   "reason": null
+  }
+ }
+}

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="Noto Sans JP, Yu Gothic UI, Meiryo, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5f6368"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #c9ced6; stroke-width: 1.5; rx: 10; }
+      .title { font-size: 17px; font-weight: 700; fill: #1d1d1f; }
+      .sub { font-size: 13px; fill: #5f6368; }
+      .group { font-size: 15px; font-weight: 700; }
+      .line { stroke: #5f6368; stroke-width: 1.8; fill: none; marker-end: url(#a); }
+      .dash { stroke-dasharray: 6 5; }
+      .label { font-size: 12.5px; fill: #3c4043; }
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#ffffff"/>
+
+  <!-- iPad -->
+  <rect x="24" y="40" width="330" height="560" rx="16" fill="#f6f6f3" stroke="#d6d6d0"/>
+  <text x="44" y="72" class="group" fill="#3c4043">iPad（描き手）</text>
+  <rect x="48" y="96" width="282" height="80" class="box"/>
+  <text x="66" y="128" class="title">Procreate</text>
+  <text x="66" y="152" class="sub">描画アプリ（連携も改変もしない）</text>
+  <rect x="48" y="232" width="282" height="118" class="box"/>
+  <text x="66" y="264" class="title">録画拡張</text>
+  <text x="66" y="288" class="sub">0.5秒ごとに画面の変化、全体画像</text>
+  <text x="66" y="308" class="sub">録画ごとの鍵（メモリ上だけ）で署名</text>
+  <text x="66" y="328" class="sub">5秒ごとのチャンクを順に送る</text>
+  <rect x="48" y="420" width="282" height="140" class="box"/>
+  <text x="66" y="452" class="title">本体アプリ（SwiftUI）</text>
+  <text x="66" y="476" class="sub">作品・記録の追加・カレンダー</text>
+  <text x="66" y="496" class="sub">PNG の取り込み・作者の申告・提出</text>
+  <text x="66" y="516" class="sub">Firebase Authentication（匿名）</text>
+  <text x="66" y="536" class="sub">App Group で録画拡張と受け渡し</text>
+  <path d="M189,176 L189,228" class="line dash"/>
+  <text x="198" y="207" class="label">画面</text>
+  <path d="M189,416 L189,354" class="line"/>
+  <text x="198" y="390" class="label">開始トークン</text>
+
+  <!-- Google Cloud -->
+  <rect x="430" y="40" width="746" height="400" rx="16" fill="#eef3f8" stroke="#c6d6e8"/>
+  <text x="450" y="72" class="group" fill="#2f5d8a">Google Cloud（drawtrace-gg2026）</text>
+  <rect x="456" y="150" width="270" height="150" class="box" stroke="#2f5d8a"/>
+  <text x="476" y="184" class="title">Cloud Run</text>
+  <text x="476" y="206" class="sub">受付API（Python / FastAPI）</text>
+  <text x="476" y="230" class="sub">受け取り・受領証・確定</text>
+  <text x="476" y="250" class="sub">外観照合・全体画像のつながり</text>
+  <text x="476" y="270" class="sub">（OpenCV、決まったルール）</text>
+  <rect x="850" y="92" width="300" height="66" class="box"/>
+  <text x="868" y="120" class="title">Cloud KMS</text>
+  <text x="868" y="142" class="sub">開始証・受領証・確定記録の署名</text>
+  <rect x="850" y="172" width="300" height="66" class="box"/>
+  <text x="868" y="200" class="title">Firestore</text>
+  <text x="868" y="222" class="sub">作品と記録の状態（トランザクション）</text>
+  <rect x="850" y="252" width="300" height="66" class="box"/>
+  <text x="868" y="280" class="title">Cloud Storage</text>
+  <text x="868" y="302" class="sub">記録・画像・証拠一式（無いときだけ作る）</text>
+  <rect x="850" y="332" width="300" height="80" class="box"/>
+  <text x="868" y="360" class="title">Gemini（Vertex AI）</text>
+  <text x="868" y="382" class="sub">依頼主向けの補足説明だけ</text>
+  <text x="868" y="400" class="sub">判定には使わない・失敗しても提出できる</text>
+  <path d="M726,190 L846,125" class="line"/>
+  <path d="M726,212 L846,205" class="line"/>
+  <path d="M726,240 L846,285" class="line"/>
+  <path d="M726,270 L846,372" class="line dash"/>
+
+  <!-- iPad -> Cloud Run -->
+  <path d="M330,290 L452,215" class="line"/>
+  <text x="352" y="238" class="label">署名つきの記録</text>
+  <path d="M330,480 C 400,480 400,282 452,282" class="line"/>
+  <text x="352" y="420" class="label">作品・提出</text>
+
+  <!-- Hosting / browser -->
+  <rect x="456" y="490" width="330" height="110" class="box" stroke="#2e6b4f"/>
+  <text x="476" y="522" class="title">Firebase Hosting</text>
+  <text x="476" y="546" class="sub">検証ページ（TypeScript）</text>
+  <text x="476" y="566" class="sub">/v1/** を Cloud Run へ転送</text>
+  <rect x="850" y="490" width="300" height="110" class="box" stroke="#2e6b4f"/>
+  <text x="868" y="522" class="title">依頼主のブラウザ</text>
+  <text x="868" y="546" class="sub">リンクを開くだけ</text>
+  <text x="868" y="566" class="sub">署名・連鎖・ハッシュを</text>
+  <text x="868" y="586" class="sub">ブラウザの中で確かめる</text>
+  <path d="M846,545 L790,545" class="line"/>
+  <path d="M590,486 L590,304" class="line"/>
+  <text x="600" y="440" class="label">証拠一式</text>
+</svg>

@@ -1,0 +1,17 @@
+{
+ "dark_blank_ipadportrait.jpg": {
+  "whole": true,
+  "note": "ダーク・白い縦長のキャンバス・iPad を縦に持って全体を表示（11/6 にNさんが撮った）",
+  "editor": true
+ },
+ "dark_blank_ipadlandscape.jpg": {
+  "whole": true,
+  "note": "ダーク・同じキャンバス・iPad を横に持って全体を表示（Procreate はキャンバスを端末に固定するので、画面では横長になる）",
+  "editor": true
+ },
+ "dark_grid_ipadportrait.jpg": {
+  "whole": true,
+  "note": "ダーク・背景に格子が出ている・縦持ちで全体を表示（11/7 の本番の作品「あかさ」の全体画像。JPEG で格子が許容を超え、サーバだけが検出できなかった）",
+  "editor": true
+ }
+}

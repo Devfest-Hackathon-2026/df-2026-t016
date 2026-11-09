@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawtrace.example/schemas/body.schema.json",
+  "title": "チャンクの本文",
+  "description": "64KB 以下（スキーマの外で確かめる）。tiles は復号すると96バイト。タイル番号 i = y*32 + x は byte[i/8] の第 (7 - i%8) ビット。",
+  "type": "object",
+  "required": ["v", "frames", "tiles"],
+  "properties": {
+    "v": { "const": 1 },
+    "frames": {
+      "type": "array",
+      "maxItems": 600,
+      "items": { "type": "integer", "minimum": 0, "maximum": 768 }
+    },
+    "tiles": { "type": "string", "pattern": "^[A-Za-z0-9+/]{128}$" }
+  }
+}

@@ -1,0 +1,850 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawtrace.example/schemas/manifest.schema.json",
+  "title": "確定記録",
+  "description": "サーバが作り、KMS で署名する。画像や PNG がない項目は null。チャンクが0件のときは chunks.first・last と received.first・last が null。 【T14】v:1（記録1回）と v:2（記録が複数）のどちらか。受付API が作るのは v:2。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/v1"
+    },
+    {
+      "$ref": "#/$defs/v2"
+    }
+  ],
+  "$defs": {
+    "hex64": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "hex64OrNull": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/hex64"
+        }
+      ]
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "timeOrNull": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/time"
+        }
+      ]
+    },
+    "unit": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "rules": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}\\.\\d+$"
+    },
+    "workId": {
+      "type": "string",
+      "pattern": "^w_[A-Za-z0-9_-]{16}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "images": {
+      "type": "object",
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/hex64OrNull"
+        },
+        "end": {
+          "$ref": "#/$defs/hex64OrNull"
+        }
+      }
+    },
+    "png": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "sha256",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "$ref": "#/$defs/hex64"
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      ]
+    },
+    "match": {
+      "type": "object",
+      "required": [
+        "result",
+        "score",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "result": {
+          "enum": [
+            "match",
+            "mismatch",
+            "unverified"
+          ]
+        },
+        "score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "declaration": {
+      "description": "作者の申告。版1（固定の文言）か、【11/8】版2（AI の使い方を選ぶ）",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/declarationV1"
+        },
+        {
+          "$ref": "#/$defs/declarationV2"
+        }
+      ]
+    },
+    "declarationV1": {
+      "type": "object",
+      "required": [
+        "version",
+        "text",
+        "acceptedAt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "text": {
+          "const": "この作品は手描きで制作しました（AI による生成・補助は使っていません）。"
+        },
+        "acceptedAt": {
+          "$ref": "#/$defs/time"
+        }
+      }
+    },
+    "declarationV2": {
+      "type": "object",
+      "description": "【11/8】版2。作者が AI の使い方を3つから選び、詳細を任意で書く。text は aiUse で決まる。detail は作者が書いた文（空でもよい）。",
+      "required": [
+        "version",
+        "aiUse",
+        "text",
+        "detail",
+        "acceptedAt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 2
+        },
+        "aiUse": {
+          "enum": [
+            "none",
+            "partial",
+            "major"
+          ]
+        },
+        "text": {
+          "enum": [
+            "この作品は AI を使用していません。",
+            "この作品は AI を部分的に使用しています。",
+            "この作品は AI を大部分で使用しています。"
+          ]
+        },
+        "detail": {
+          "type": "string",
+          "maxLength": 400
+        },
+        "acceptedAt": {
+          "$ref": "#/$defs/time"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "aiUse": {
+                "const": "none"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "const": "この作品は AI を使用していません。"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "aiUse": {
+                "const": "partial"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "const": "この作品は AI を部分的に使用しています。"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "aiUse": {
+                "const": "major"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "const": "この作品は AI を大部分で使用しています。"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "rejected": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "createdAt": {
+      "$ref": "#/$defs/time"
+    },
+    "sid": {
+      "type": "string",
+      "pattern": "^s_[A-Za-z0-9_-]{16}$"
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "aborted"
+      ]
+    },
+    "chunks": {
+      "type": "object",
+      "required": [
+        "count",
+        "first",
+        "last"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "first": {
+          "$ref": "#/$defs/hex64OrNull"
+        },
+        "last": {
+          "$ref": "#/$defs/hex64OrNull"
+        }
+      }
+    },
+    "received": {
+      "type": "object",
+      "required": [
+        "first",
+        "last",
+        "gaps"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "first": {
+          "$ref": "#/$defs/timeOrNull"
+        },
+        "last": {
+          "$ref": "#/$defs/timeOrNull"
+        },
+        "gaps": {
+          "type": "array",
+          "description": "受信間隔が30秒を超えた箇所。after は直前のチャンクの seq",
+          "items": {
+            "type": "object",
+            "required": [
+              "after",
+              "sec"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sec": {
+                "type": "number",
+                "exclusiveMinimum": 30
+              }
+            }
+          }
+        }
+      }
+    },
+    "wholeV1": {
+      "description": "途中の全体画像（T13）。任意で、全体画像が無ければ null",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "shown",
+            "items",
+            "links",
+            "toPng"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "shown": {
+              "type": "boolean"
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 150,
+              "items": {
+                "type": "object",
+                "required": [
+                  "seq",
+                  "sha256",
+                  "received",
+                  "canvas"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "sha256": {
+                    "$ref": "#/$defs/hex64"
+                  },
+                  "received": {
+                    "type": "boolean"
+                  },
+                  "canvas": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "x",
+                          "y",
+                          "w",
+                          "h"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "x": {
+                            "$ref": "#/$defs/unit"
+                          },
+                          "y": {
+                            "$ref": "#/$defs/unit"
+                          },
+                          "w": {
+                            "$ref": "#/$defs/unit"
+                          },
+                          "h": {
+                            "$ref": "#/$defs/unit"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "links": {
+              "type": "array",
+              "maxItems": 149,
+              "items": {
+                "type": "object",
+                "required": [
+                  "from",
+                  "to",
+                  "result",
+                  "kept",
+                  "reason"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "to": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "result": {
+                    "enum": [
+                      "linked",
+                      "unconfirmed"
+                    ]
+                  },
+                  "kept": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/$defs/unit"
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            },
+            "toPng": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "result",
+                    "kept",
+                    "reason"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "result": {
+                      "enum": [
+                        "linked",
+                        "unconfirmed"
+                      ]
+                    },
+                    "kept": {
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/$defs/unit"
+                        }
+                      ]
+                    },
+                    "reason": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "wholeV2": {
+      "description": "【T14】v:2 の途中の全体画像。items に session（sessions の番号）が入る",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "shown",
+            "items",
+            "links",
+            "toPng"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "shown": {
+              "type": "boolean"
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4500,
+              "items": {
+                "type": "object",
+                "required": [
+                  "session",
+                  "seq",
+                  "sha256",
+                  "received",
+                  "canvas"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "session": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 29
+                  },
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "sha256": {
+                    "$ref": "#/$defs/hex64"
+                  },
+                  "received": {
+                    "type": "boolean"
+                  },
+                  "canvas": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "x",
+                          "y",
+                          "w",
+                          "h"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "x": {
+                            "$ref": "#/$defs/unit"
+                          },
+                          "y": {
+                            "$ref": "#/$defs/unit"
+                          },
+                          "w": {
+                            "$ref": "#/$defs/unit"
+                          },
+                          "h": {
+                            "$ref": "#/$defs/unit"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "links": {
+              "type": "array",
+              "maxItems": 4499,
+              "items": {
+                "type": "object",
+                "required": [
+                  "from",
+                  "to",
+                  "result",
+                  "kept",
+                  "reason"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "to": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "result": {
+                    "enum": [
+                      "linked",
+                      "unconfirmed"
+                    ]
+                  },
+                  "kept": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/$defs/unit"
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            },
+            "toPng": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "result",
+                    "kept",
+                    "reason"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "result": {
+                      "enum": [
+                        "linked",
+                        "unconfirmed"
+                      ]
+                    },
+                    "kept": {
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/$defs/unit"
+                        }
+                      ]
+                    },
+                    "reason": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "v1": {
+      "type": "object",
+      "required": [
+        "v",
+        "type",
+        "rules",
+        "workId",
+        "title",
+        "displayName",
+        "sid",
+        "status",
+        "chunks",
+        "received",
+        "images",
+        "png",
+        "match",
+        "declaration",
+        "rejected",
+        "createdAt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "v": {
+          "const": 1
+        },
+        "type": {
+          "const": "manifest"
+        },
+        "rules": {
+          "$ref": "#/$defs/rules"
+        },
+        "workId": {
+          "$ref": "#/$defs/workId"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "displayName": {
+          "$ref": "#/$defs/displayName"
+        },
+        "sid": {
+          "$ref": "#/$defs/sid"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "chunks": {
+          "$ref": "#/$defs/chunks"
+        },
+        "received": {
+          "$ref": "#/$defs/received"
+        },
+        "images": {
+          "$ref": "#/$defs/images"
+        },
+        "png": {
+          "$ref": "#/$defs/png"
+        },
+        "match": {
+          "$ref": "#/$defs/match"
+        },
+        "declaration": {
+          "$ref": "#/$defs/declaration"
+        },
+        "whole": {
+          "$ref": "#/$defs/wholeV1"
+        },
+        "rejected": {
+          "$ref": "#/$defs/rejected"
+        },
+        "createdAt": {
+          "$ref": "#/$defs/createdAt"
+        }
+      }
+    },
+    "v2": {
+      "type": "object",
+      "description": "【T14】記録（セッション）が複数になった形。記録ごとの sid・status・chunks・received は sessions に入れる",
+      "required": [
+        "v",
+        "type",
+        "rules",
+        "workId",
+        "title",
+        "displayName",
+        "sessions",
+        "images",
+        "png",
+        "match",
+        "declaration",
+        "whole",
+        "rejected",
+        "createdAt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "v": {
+          "const": 2
+        },
+        "type": {
+          "const": "manifest"
+        },
+        "rules": {
+          "$ref": "#/$defs/rules"
+        },
+        "workId": {
+          "$ref": "#/$defs/workId"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "displayName": {
+          "$ref": "#/$defs/displayName"
+        },
+        "sessions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 30,
+          "description": "開始した順の記録",
+          "items": {
+            "type": "object",
+            "required": [
+              "sid",
+              "status",
+              "chunks",
+              "received"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "sid": {
+                "$ref": "#/$defs/sid"
+              },
+              "status": {
+                "$ref": "#/$defs/status"
+              },
+              "chunks": {
+                "$ref": "#/$defs/chunks"
+              },
+              "received": {
+                "$ref": "#/$defs/received"
+              }
+            }
+          }
+        },
+        "images": {
+          "$ref": "#/$defs/images"
+        },
+        "png": {
+          "$ref": "#/$defs/png"
+        },
+        "match": {
+          "$ref": "#/$defs/match"
+        },
+        "declaration": {
+          "$ref": "#/$defs/declaration"
+        },
+        "whole": {
+          "$ref": "#/$defs/wholeV2"
+        },
+        "rejected": {
+          "$ref": "#/$defs/rejected"
+        },
+        "createdAt": {
+          "$ref": "#/$defs/createdAt"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+ "fixtures": [
+  {
+   "name": "normal",
+   "description": "正常。整合性は一致、正常終了、外観は一致",
+   "integrity": "ok"
+  },
+  {
+   "name": "gap",
+   "description": "seq 60 と 61 の受信時刻の間が約65秒あく。受信の空きが1か所（理由は書かない）",
+   "integrity": "ok"
+  },
+  {
+   "name": "missing_chunk",
+   "description": "seq 40 のチャンクを抜いた。seq 41 でつながりが切れ、件数も合わない",
+   "integrity": "chain_broken"
+  },
+  {
+   "name": "tampered_header",
+   "description": "seq 30 のヘッダの1バイトを変えた（署名はそのまま）。署名の不一致",
+   "integrity": "signature_mismatch"
+  },
+  {
+   "name": "tampered_body",
+   "description": "seq 50 の本文の frames の数字を1文字変えた（ヘッダと署名はそのまま）。内容の不一致",
+   "integrity": "content_mismatch"
+  },
+  {
+   "name": "truncated",
+   "description": "最後の2件を消した（確定記録の件数・末尾はそのまま）。確定記録との不一致",
+   "integrity": "manifest_mismatch"
+  },
+  {
+   "name": "aborted",
+   "description": "最終チャンクがない異常終了。終了画面もなく、外観は未確認",
+   "integrity": "ok"
+  },
+  {
+   "name": "other_png",
+   "description": "手元の PNG（original.png）が別の絵。確定記録の PNG のハッシュは元の絵。外観は不一致",
+   "integrity": "ok"
+  },
+  {
+   "name": "similar_png",
+   "description": "手元の PNG に数本の線を足した。外観は一致だが、ハッシュは不一致",
+   "integrity": "ok"
+  },
+  {
+   "name": "no_end_image",
+   "description": "終了画面がない。整合性は一致、外観は未確認",
+   "integrity": "ok"
+  },
+  {
+   "name": "whole_normal",
+   "description": "normal に、描き進めた全体画像を6枚（seq 10・30・50・70・90・110）入れた。つながりはすべて確認、PNG へも確認",
+   "integrity": "ok"
+  },
+  {
+   "name": "whole_switched",
+   "description": "whole_normal の4枚目（seq 70）だけ別の絵。その前後の2か所が確認できず（別の絵とは出さない）。整合性は一致",
+   "integrity": "ok"
+  },
+  {
+   "name": "whole_tampered",
+   "description": "whole_normal の whole-2.jpg を、見た目が同じで中身の違う画像（品質を変えて保存し直した）に差し替えた。内容の不一致",
+   "integrity": "content_mismatch"
+  },
+  {
+   "name": "whole_hidden",
+   "description": "whole_normal を載せない設定にした（files.whole は null、画像は置かない）。整合性は一致",
+   "integrity": "ok"
+  },
+  {
+   "name": "multi_session",
+   "description": "【T14】3回の記録（2回目は次の日で異常終了・受信の空き1か所、3回目は同じ日の夜）。証拠一式 v:2。整合性は一致、全体画像は記録をまたいでつながりを確認",
+   "integrity": "ok"
+  },
+  {
+   "name": "multi_declared",
+   "description": "【11/8】multi_session と同じ記録で、作者の申告が版2（AI を部分的に使用、詳細あり）。整合性は一致",
+   "integrity": "ok"
+  },
+  {
+   "name": "multi_tampered",
+   "description": "multi_session の2回目の記録の seq 12 のヘッダの1バイトを変えた。署名の不一致（2回目の記録のチャンク12）",
+   "integrity": "signature_mismatch"
+  }
+ ]
+}

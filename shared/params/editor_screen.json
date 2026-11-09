@@ -1,0 +1,6 @@
+{"version":1,
+ "source":"shared/vectors/whole_canvas/real/dark_blank_ipadportrait.jpg",
+ "regionPx":[0,0,249,33],
+ "brightDelta":40,"darkBand":6,
+ "brightTol":24,"darkTol":8,
+ "brightMin":0.60,"darkMin":0.90}

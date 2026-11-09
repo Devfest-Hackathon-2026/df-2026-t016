@@ -1,0 +1,7 @@
+// 受付API と検証ページの URL（公開環境の値）。本体アプリの Info.plist（AppInfo.plist）から読む。
+// xcconfig では「//」より後ろがコメントになるので、URL の「//」は「/$()/」と書く。
+API_BASE_URL = https:/$()/trace-api-x6vza4wesa-an.a.run.app
+HOSTING_URL = https:/$()/drawtrace-gg2026.web.app
+
+// 手元だけで変えたい値は Local.xcconfig に書く（.gitignore 済み。無ければ読まない）。
+#include? "Local.xcconfig"

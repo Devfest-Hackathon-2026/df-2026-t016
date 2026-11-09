@@ -1,0 +1,126 @@
+{
+  "_note": "テスト専用の鍵とデータ。本番では使わない。generate_vectors.py で作る。",
+  "deviceKey": {
+    "privateHex": "2719fcad29789107b4d4d4e63b15af0b7afc154222c5c57bb132078257405f1f",
+    "publicX963": "BA3WNMrFVzRkoNl+LHr6d67KXWiWnteQlIi2by5zgHbDvTUZi7bBCubTabvZPIfPeJdxzM0CqFVA7cFaxmLuTN0="
+  },
+  "canonical": {
+    "obj": {
+      "b": "手描き/テスト",
+      "a": [
+        1,
+        2,
+        {
+          "z": true,
+          "y": null
+        }
+      ],
+      "c": "a\"b\\c"
+    },
+    "bytes": "eyJhIjpbMSwyLHsieSI6bnVsbCwieiI6dHJ1ZX1dLCJiIjoi5omL5o+P44GNL+ODhuOCueODiCIsImMiOiJhXCJiXFxjIn0="
+  },
+  "startCert": {
+    "obj": {
+      "v": 1,
+      "type": "start",
+      "sid": "s_TestSession00001",
+      "workId": "w_TestWork00000001",
+      "devicePubKey": "BA3WNMrFVzRkoNl+LHr6d67KXWiWnteQlIi2by5zgHbDvTUZi7bBCubTabvZPIfPeJdxzM0CqFVA7cFaxmLuTN0=",
+      "checked": [
+        "startToken"
+      ],
+      "issuedAt": "2026-11-05T01:00:00.000Z"
+    },
+    "bytes": "eyJjaGVja2VkIjpbInN0YXJ0VG9rZW4iXSwiZGV2aWNlUHViS2V5IjoiQkEzV05NckZWelJrb05sK0xIcjZkNjdLWFdpV250ZVFsSWkyYnk1emdIYkR2VFVaaTdiQkN1YlRhYnZaUElmUGVKZHh6TTBDcUZWQTdjRmF4bUx1VE4wPSIsImlzc3VlZEF0IjoiMjAyNi0xMS0wNVQwMTowMDowMC4wMDBaIiwic2lkIjoic19UZXN0U2Vzc2lvbjAwMDAxIiwidHlwZSI6InN0YXJ0IiwidiI6MSwid29ya0lkIjoid19UZXN0V29yazAwMDAwMDAxIn0=",
+    "sha256": "c6cf4499b4993bd77868d6c86d230352cdafbdec2be09e4fbd33498055356eab",
+    "sig": "MEQCIFuXMjUbgXpqobXpgQh3yxt47yWsO7Y6PpyBKsteq00VAiB/tjFzqgRHuylzo1xltwfYJFKoQWlGZ1d2mpn37FXzdQ=="
+  },
+  "body": {
+    "obj": {
+      "v": 1,
+      "frames": [
+        0,
+        0,
+        3,
+        1,
+        0
+      ],
+      "tiles": "gAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB"
+    },
+    "bytes": "eyJmcmFtZXMiOlswLDAsMywxLDBdLCJ0aWxlcyI6ImdBQUFBRUFBQUFBQUFBQUFDQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFCIiwidiI6MX0=",
+    "sha256": "239260b66260fd164666cdeb313cfdc71f95938584c0b9304982f8cd1a411fa6",
+    "tilesSet": [
+      0,
+      33,
+      100,
+      767
+    ]
+  },
+  "header": {
+    "obj": {
+      "v": 1,
+      "sid": "s_TestSession00001",
+      "seq": 0,
+      "prev": "c6cf4499b4993bd77868d6c86d230352cdafbdec2be09e4fbd33498055356eab",
+      "tStart": "2026-11-05T01:00:01.000Z",
+      "tEnd": "2026-11-05T01:00:11.000Z",
+      "body": "239260b66260fd164666cdeb313cfdc71f95938584c0b9304982f8cd1a411fa6",
+      "bodyLen": 167,
+      "images": {
+        "start": "f86ca2648cac82fa7b88442e30abd641fe925ddb3677d17e916df27266145aa9"
+      },
+      "stats": {
+        "fps": 10,
+        "changedTiles": 4,
+        "resend": false,
+        "memMB": 31,
+        "degraded": false
+      },
+      "final": false
+    },
+    "bytes": "eyJib2R5IjoiMjM5MjYwYjY2MjYwZmQxNjQ2NjZjZGViMzEzY2ZkYzcxZjk1OTM4NTg0YzBiOTMwNDk4MmY4Y2QxYTQxMWZhNiIsImJvZHlMZW4iOjE2NywiZmluYWwiOmZhbHNlLCJpbWFnZXMiOnsic3RhcnQiOiJmODZjYTI2NDhjYWM4MmZhN2I4ODQ0MmUzMGFiZDY0MWZlOTI1ZGRiMzY3N2QxN2U5MTZkZjI3MjY2MTQ1YWE5In0sInByZXYiOiJjNmNmNDQ5OWI0OTkzYmQ3Nzg2OGQ2Yzg2ZDIzMDM1MmNkYWZiZGVjMmJlMDllNGZiZDMzNDk4MDU1MzU2ZWFiIiwic2VxIjowLCJzaWQiOiJzX1Rlc3RTZXNzaW9uMDAwMDEiLCJzdGF0cyI6eyJjaGFuZ2VkVGlsZXMiOjQsImRlZ3JhZGVkIjpmYWxzZSwiZnBzIjoxMCwibWVtTUIiOjMxLCJyZXNlbmQiOmZhbHNlfSwidEVuZCI6IjIwMjYtMTEtMDVUMDE6MDA6MTEuMDAwWiIsInRTdGFydCI6IjIwMjYtMTEtMDVUMDE6MDA6MDEuMDAwWiIsInYiOjF9",
+    "sha256": "7667de7cbec3ead8d5a16d949be02972806f9457aec261ecd350235c73be8529"
+  },
+  "deviceSig": {
+    "of": "header.bytes",
+    "sig": "kU0GJJTJv2I1w4U9JWzKerddZQdJtYpaA9MunUcWeRnaEldevEUKQOrp45YsHH1gfIdUmqgT0/xEeWJ0Po0/xw=="
+  },
+  "imageSig": {
+    "message": "image:s_TestSession00001:f86ca2648cac82fa7b88442e30abd641fe925ddb3677d17e916df27266145aa9",
+    "sig": "MJ03ISRyUSA5zgHww9h3rqArKEImMjDn7oTvnBQvxsLShlIii4V2U9SCAQjQiaZX21JNpQFEqHeoBxUixar7qw=="
+  },
+  "receipt": {
+    "obj": {
+      "v": 1,
+      "type": "receipt",
+      "sid": "s_TestSession00001",
+      "seq": 0,
+      "header": "7667de7cbec3ead8d5a16d949be02972806f9457aec261ecd350235c73be8529",
+      "receivedAt": "2026-11-05T01:00:11.234Z"
+    },
+    "bytes": "eyJoZWFkZXIiOiI3NjY3ZGU3Y2JlYzNlYWQ4ZDVhMTZkOTQ5YmUwMjk3MjgwNmY5NDU3YWVjMjYxZWNkMzUwMjM1YzczYmU4NTI5IiwicmVjZWl2ZWRBdCI6IjIwMjYtMTEtMDVUMDE6MDA6MTEuMjM0WiIsInNlcSI6MCwic2lkIjoic19UZXN0U2Vzc2lvbjAwMDAxIiwidHlwZSI6InJlY2VpcHQiLCJ2IjoxfQ==",
+    "sig": "MEQCIGeYd+ZMapl+DLjLd7vJbC7zrelbghHsa3JiFGOENSeFAiAvQGJkFmhrlckPYklnapscz6wIJPyoy8YUsr+tunrzuA=="
+  },
+  "kmsKey": {
+    "privateHex": "4484f50728576e8670089f1af4cf9327313190f0851fa7bf73bf08f063d3d290",
+    "publicPem": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOme+CHJC4a5Oy1CHPoclUTziLYl8\niFoBTsDMiT9+1pMPQsaKtFVerJcBH2sCb5/OrZP7bhDs/Z1oRiItNBmaXw==\n-----END PUBLIC KEY-----\n",
+    "keyVersion": "test/1"
+  },
+  "derToRs": [
+    {
+      "note": "r,s ともに先頭 0x00 付きの33バイト",
+      "der": "MEYCIQCC8+nGldxrjRsRgY1XAZGeKG3o1H98PrMQDEhfeeV4KAIhAOi8FjyC7uGHMyiMfUrGNts6besBPvLTe2gyK+IO3EXM",
+      "rs": "gvPpxpXca40bEYGNVwGRniht6NR/fD6zEAxIX3nleCjovBY8gu7hhzMojH1KxjbbOm3rAT7y03toMiviDtxFzA=="
+    },
+    {
+      "note": "r が31バイト（r‖s で 0x00 埋め）、s は33バイト",
+      "der": "MEQCH227/oDXyrkQ0kxNslm7hUHR4rA0IC3Ph0oEf1cr/osCIQCtMohGqhizKjNYFjdFEcrBBjxwS4xXmZ5R2p+QgpCnpA==",
+      "rs": "AG27/oDXyrkQ0kxNslm7hUHR4rA0IC3Ph0oEf1cr/outMohGqhizKjNYFjdFEcrBBjxwS4xXmZ5R2p+QgpCnpA=="
+    },
+    {
+      "note": "r は32バイト、s が30バイト",
+      "der": "MEICIHJOsdlUU8eCRdfiWiyAFLAdLSCy90X8xXiusXkmbBo8Ah5gkhXP1yt9anNzvv8Z5Yxo4f4sH8xGeS98+WzfBqI=",
+      "rs": "ck6x2VRTx4JF1+JaLIAUsB0tILL3RfzFeK6xeSZsGjwAAGCSFc/XK31qc3O+/xnljGjh/iwfzEZ5L3z5bN8Gog=="
+    }
+  ]
+}

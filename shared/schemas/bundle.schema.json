@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawtrace.example/schemas/bundle.schema.json",
+  "title": "証拠一式",
+  "description": "GET /v1/p/{publicId} の中身。chunks は seq の昇順。bundle.json には explanation:null で保存し、返すときに差し込む。 【T14】v:1（記録1回）と v:2（記録が複数）のどちらか。受付API が作るのは v:2。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/v1"
+    },
+    {
+      "$ref": "#/$defs/v2"
+    }
+  ],
+  "$defs": {
+    "b64": {
+      "type": "string",
+      "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+    },
+    "signed": {
+      "type": "object",
+      "required": [
+        "bytes",
+        "sig"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "$ref": "#/$defs/b64"
+        },
+        "sig": {
+          "$ref": "#/$defs/b64",
+          "description": "DER の標準 base64"
+        }
+      }
+    },
+    "chunks": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "type": "object",
+        "required": [
+          "header",
+          "sig",
+          "body",
+          "receipt",
+          "receiptSig"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "header": {
+            "$ref": "#/$defs/b64"
+          },
+          "sig": {
+            "type": "string",
+            "description": "r‖s の64バイトの標準 base64",
+            "pattern": "^[A-Za-z0-9+/]{86}==$"
+          },
+          "body": {
+            "$ref": "#/$defs/b64"
+          },
+          "receipt": {
+            "$ref": "#/$defs/b64"
+          },
+          "receiptSig": {
+            "$ref": "#/$defs/b64"
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "png"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "enum": [
+            "start.jpg",
+            null
+          ]
+        },
+        "end": {
+          "enum": [
+            "end.jpg",
+            null
+          ]
+        },
+        "png": {
+          "enum": [
+            "png.jpg",
+            null
+          ]
+        },
+        "whole": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4500,
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^whole-(0|[1-9][0-9]*)\\.jpg$"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "kms": {
+      "type": "object",
+      "required": [
+        "publicKeyPem",
+        "keyVersion"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "publicKeyPem": {
+          "type": "string",
+          "pattern": "^-----BEGIN PUBLIC KEY-----"
+        },
+        "keyVersion": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "explanation": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "text",
+            "model"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["from", "to"],
+                "additionalProperties": false,
+                "properties": {
+                  "from": {"type": "integer", "minimum": 0},
+                  "to": {"type": "integer", "minimum": 0}
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "v1": {
+      "type": "object",
+      "required": [
+        "v",
+        "manifest",
+        "start",
+        "chunks",
+        "files",
+        "kms",
+        "explanation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "v": {
+          "const": 1
+        },
+        "manifest": {
+          "$ref": "#/$defs/signed"
+        },
+        "start": {
+          "$ref": "#/$defs/signed"
+        },
+        "chunks": {
+          "$ref": "#/$defs/chunks"
+        },
+        "files": {
+          "$ref": "#/$defs/files"
+        },
+        "kms": {
+          "$ref": "#/$defs/kms"
+        },
+        "explanation": {
+          "$ref": "#/$defs/explanation"
+        }
+      }
+    },
+    "v2": {
+      "type": "object",
+      "description": "【T14】記録ごとに開始証とチャンクを sessions に入れる（確定記録の sessions と同じ順）",
+      "required": [
+        "v",
+        "manifest",
+        "sessions",
+        "files",
+        "kms",
+        "explanation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "v": {
+          "const": 2
+        },
+        "manifest": {
+          "$ref": "#/$defs/signed"
+        },
+        "sessions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 30,
+          "items": {
+            "type": "object",
+            "required": [
+              "start",
+              "chunks"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "start": {
+                "$ref": "#/$defs/signed"
+              },
+              "chunks": {
+                "$ref": "#/$defs/chunks"
+              }
+            }
+          }
+        },
+        "files": {
+          "$ref": "#/$defs/files"
+        },
+        "kms": {
+          "$ref": "#/$defs/kms"
+        },
+        "explanation": {
+          "$ref": "#/$defs/explanation"
+        }
+      }
+    }
+  }
+}

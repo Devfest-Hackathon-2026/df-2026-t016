@@ -1,0 +1,12 @@
+# Cloud Build に送らないもの（server/deploy.sh）
+.git/
+web/
+ios/
+design/
+researches/
+tasks/
+tools/
+**/__pycache__/
+**/.pytest_cache/
+.local_store/
+server/tests/

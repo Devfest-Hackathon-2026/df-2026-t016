@@ -1,0 +1,805 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E8677AEF309D5686007557A4 /* TraceKit in Frameworks */ = {isa = PBXBuildFile; productRef = E8677AEE309D5686007557A4 /* TraceKit */; };
+		E8677AF1309D5698007557A4 /* TraceKit in Frameworks */ = {isa = PBXBuildFile; productRef = E8677AF0309D5698007557A4 /* TraceKit */; };
+		E8677B14309D5F56007557A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E8677B13309D5F56007557A4 /* FirebaseAuth */; };
+		E8677B16309D5F56007557A4 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = E8677B15309D5F56007557A4 /* FirebaseAppCheck */; };
+		E8AC40A0309C4A3F0078E305 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AC409F309C4A3E0078E305 /* ReplayKit.framework */; };
+		E8AC40A7309C4A3F0078E305 /* broadcast.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E8AC409D309C4A3E0078E305 /* broadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E8AC407C309C48590078E305 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8AC4066309C48550078E305 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8AC406D309C48550078E305;
+			remoteInfo = DrawTrace;
+		};
+		E8AC4086309C48590078E305 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8AC4066309C48550078E305 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8AC406D309C48550078E305;
+			remoteInfo = DrawTrace;
+		};
+		E8AC40A5309C4A3F0078E305 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8AC4066309C48550078E305 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8AC409C309C4A3E0078E305;
+			remoteInfo = broadcast;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E8AC40AC309C4A3F0078E305 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E8AC40A7309C4A3F0078E305 /* broadcast.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E8AC406E309C48550078E305 /* DrawTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8AC407B309C48590078E305 /* DrawTraceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawTraceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8AC4085309C48590078E305 /* DrawTraceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawTraceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8AC409D309C4A3E0078E305 /* broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8AC409F309C4A3E0078E305 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		E8AC4F00309CA0000078E305 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = ../Config/Base.xcconfig; sourceTree = "<group>"; };
+		E8AC4F01309CA0000078E305 /* AppInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = AppInfo.plist; path = ../Config/AppInfo.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E8AC40A8309C4A3F0078E305 /* Exceptions for "broadcast" folder in "broadcast" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E8AC409C309C4A3E0078E305 /* broadcast */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E8AC4070309C48550078E305 /* DrawTrace */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DrawTrace;
+			sourceTree = "<group>";
+		};
+		E8AC407E309C48590078E305 /* DrawTraceTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DrawTraceTests;
+			sourceTree = "<group>";
+		};
+		E8AC4088309C48590078E305 /* DrawTraceUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DrawTraceUITests;
+			sourceTree = "<group>";
+		};
+		E8AC40A1309C4A3F0078E305 /* broadcast */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E8AC40A8309C4A3F0078E305 /* Exceptions for "broadcast" folder in "broadcast" target */,
+			);
+			path = broadcast;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8AC406B309C48550078E305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8677AEF309D5686007557A4 /* TraceKit in Frameworks */,
+				E8677B14309D5F56007557A4 /* FirebaseAuth in Frameworks */,
+				E8677B16309D5F56007557A4 /* FirebaseAppCheck in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4078309C48590078E305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4082309C48590078E305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC409A309C4A3E0078E305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8AC40A0309C4A3F0078E305 /* ReplayKit.framework in Frameworks */,
+				E8677AF1309D5698007557A4 /* TraceKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E8AC4065309C48550078E305 = {
+			isa = PBXGroup;
+			children = (
+				E8AC4070309C48550078E305 /* DrawTrace */,
+				E8AC407E309C48590078E305 /* DrawTraceTests */,
+				E8AC4088309C48590078E305 /* DrawTraceUITests */,
+				E8AC40A1309C4A3F0078E305 /* broadcast */,
+				E8AC4F02309CA0000078E305 /* Config */,
+				E8AC409E309C4A3E0078E305 /* Frameworks */,
+				E8AC406F309C48550078E305 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E8AC406F309C48550078E305 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8AC406E309C48550078E305 /* DrawTrace.app */,
+				E8AC407B309C48590078E305 /* DrawTraceTests.xctest */,
+				E8AC4085309C48590078E305 /* DrawTraceUITests.xctest */,
+				E8AC409D309C4A3E0078E305 /* broadcast.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8AC409E309C4A3E0078E305 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8AC409F309C4A3E0078E305 /* ReplayKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8AC4F02309CA0000078E305 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E8AC4F00309CA0000078E305 /* Base.xcconfig */,
+				E8AC4F01309CA0000078E305 /* AppInfo.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E8AC406D309C48550078E305 /* DrawTrace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8AC408F309C48590078E305 /* Build configuration list for PBXNativeTarget "DrawTrace" */;
+			buildPhases = (
+				E8AC406A309C48550078E305 /* Sources */,
+				E8AC406B309C48550078E305 /* Frameworks */,
+				E8AC406C309C48550078E305 /* Resources */,
+				E8AC40AC309C4A3F0078E305 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8AC40A6309C4A3F0078E305 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E8AC4070309C48550078E305 /* DrawTrace */,
+			);
+			name = DrawTrace;
+			packageProductDependencies = (
+				E8677AEE309D5686007557A4 /* TraceKit */,
+				E8677B13309D5F56007557A4 /* FirebaseAuth */,
+				E8677B15309D5F56007557A4 /* FirebaseAppCheck */,
+			);
+			productName = DrawTrace;
+			productReference = E8AC406E309C48550078E305 /* DrawTrace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E8AC407A309C48590078E305 /* DrawTraceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8AC4092309C48590078E305 /* Build configuration list for PBXNativeTarget "DrawTraceTests" */;
+			buildPhases = (
+				E8AC4077309C48590078E305 /* Sources */,
+				E8AC4078309C48590078E305 /* Frameworks */,
+				E8AC4079309C48590078E305 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8AC407D309C48590078E305 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E8AC407E309C48590078E305 /* DrawTraceTests */,
+			);
+			name = DrawTraceTests;
+			packageProductDependencies = (
+			);
+			productName = DrawTraceTests;
+			productReference = E8AC407B309C48590078E305 /* DrawTraceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E8AC4084309C48590078E305 /* DrawTraceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8AC4095309C48590078E305 /* Build configuration list for PBXNativeTarget "DrawTraceUITests" */;
+			buildPhases = (
+				E8AC4081309C48590078E305 /* Sources */,
+				E8AC4082309C48590078E305 /* Frameworks */,
+				E8AC4083309C48590078E305 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8AC4087309C48590078E305 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E8AC4088309C48590078E305 /* DrawTraceUITests */,
+			);
+			name = DrawTraceUITests;
+			packageProductDependencies = (
+			);
+			productName = DrawTraceUITests;
+			productReference = E8AC4085309C48590078E305 /* DrawTraceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E8AC409C309C4A3E0078E305 /* broadcast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8AC40A9309C4A3F0078E305 /* Build configuration list for PBXNativeTarget "broadcast" */;
+			buildPhases = (
+				E8AC4099309C4A3E0078E305 /* Sources */,
+				E8AC409A309C4A3E0078E305 /* Frameworks */,
+				E8AC409B309C4A3E0078E305 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E8AC40A1309C4A3F0078E305 /* broadcast */,
+			);
+			name = broadcast;
+			packageProductDependencies = (
+				E8677AF0309D5698007557A4 /* TraceKit */,
+			);
+			productName = broadcast;
+			productReference = E8AC409D309C4A3E0078E305 /* broadcast.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8AC4066309C48550078E305 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					E8AC406D309C48550078E305 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					E8AC407A309C48590078E305 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = E8AC406D309C48550078E305;
+					};
+					E8AC4084309C48590078E305 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = E8AC406D309C48550078E305;
+					};
+					E8AC409C309C4A3E0078E305 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = E8AC4069309C48550078E305 /* Build configuration list for PBXProject "DrawTrace" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E8AC4065309C48550078E305;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E8677AED309D551B007557A4 /* XCLocalSwiftPackageReference "../TraceKit" */,
+				E8677B12309D5F56007557A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E8AC406F309C48550078E305 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8AC406D309C48550078E305 /* DrawTrace */,
+				E8AC407A309C48590078E305 /* DrawTraceTests */,
+				E8AC4084309C48590078E305 /* DrawTraceUITests */,
+				E8AC409C309C4A3E0078E305 /* broadcast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E8AC406C309C48550078E305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4079309C48590078E305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4083309C48590078E305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC409B309C4A3E0078E305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8AC406A309C48550078E305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4077309C48590078E305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4081309C48590078E305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8AC4099309C4A3E0078E305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E8AC407D309C48590078E305 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8AC406D309C48550078E305 /* DrawTrace */;
+			targetProxy = E8AC407C309C48590078E305 /* PBXContainerItemProxy */;
+		};
+		E8AC4087309C48590078E305 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8AC406D309C48550078E305 /* DrawTrace */;
+			targetProxy = E8AC4086309C48590078E305 /* PBXContainerItemProxy */;
+		};
+		E8AC40A6309C4A3F0078E305 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8AC409C309C4A3E0078E305 /* broadcast */;
+			targetProxy = E8AC40A5309C4A3F0078E305 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E8AC408D309C48590078E305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E8AC408E309C48590078E305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8AC4090309C48590078E305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8AC4F00309CA0000078E305 /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DrawTrace/DrawTrace.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/../Config/AppInfo.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Canvault;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E8AC4091309C48590078E305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8AC4F00309CA0000078E305 /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DrawTrace/DrawTrace.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/../Config/AppInfo.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Canvault;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		E8AC4093309C48590078E305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrawTrace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DrawTrace";
+			};
+			name = Debug;
+		};
+		E8AC4094309C48590078E305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrawTrace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DrawTrace";
+			};
+			name = Release;
+		};
+		E8AC4096309C48590078E305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				TEST_TARGET_NAME = DrawTrace;
+			};
+			name = Debug;
+		};
+		E8AC4097309C48590078E305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				TEST_TARGET_NAME = DrawTrace;
+			};
+			name = Release;
+		};
+		E8AC40AA309C4A3F0078E305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = broadcast/broadcast.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = broadcast/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Canvault;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace.broadcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E8AC40AB309C4A3F0078E305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = broadcast/broadcast.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = broadcast/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Canvault;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdevfest2026.drawtrace.broadcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8AC4069309C48550078E305 /* Build configuration list for PBXProject "DrawTrace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8AC408D309C48590078E305 /* Debug */,
+				E8AC408E309C48590078E305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8AC408F309C48590078E305 /* Build configuration list for PBXNativeTarget "DrawTrace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8AC4090309C48590078E305 /* Debug */,
+				E8AC4091309C48590078E305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8AC4092309C48590078E305 /* Build configuration list for PBXNativeTarget "DrawTraceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8AC4093309C48590078E305 /* Debug */,
+				E8AC4094309C48590078E305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8AC4095309C48590078E305 /* Build configuration list for PBXNativeTarget "DrawTraceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8AC4096309C48590078E305 /* Debug */,
+				E8AC4097309C48590078E305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8AC40A9309C4A3F0078E305 /* Build configuration list for PBXNativeTarget "broadcast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8AC40AA309C4A3F0078E305 /* Debug */,
+				E8AC40AB309C4A3F0078E305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E8677AED309D551B007557A4 /* XCLocalSwiftPackageReference "../TraceKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../TraceKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E8677B12309D5F56007557A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E8677AEE309D5686007557A4 /* TraceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8677AED309D551B007557A4 /* XCLocalSwiftPackageReference "../TraceKit" */;
+			productName = TraceKit;
+		};
+		E8677AF0309D5698007557A4 /* TraceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8677AED309D551B007557A4 /* XCLocalSwiftPackageReference "../TraceKit" */;
+			productName = TraceKit;
+		};
+		E8677B13309D5F56007557A4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8677B12309D5F56007557A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E8677B15309D5F56007557A4 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8677B12309D5F56007557A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E8AC4066309C48550078E305 /* Project object */;
+}

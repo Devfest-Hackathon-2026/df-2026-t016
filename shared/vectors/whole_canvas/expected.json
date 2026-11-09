@@ -1,0 +1,243 @@
+{
+ "_note": "detect の rect は [x, y, w, h]（画素）で、±2px まで同じとみなす。compare の a・b は detect の名前（キャンバスを切り出して使う）。bIsPng が true の b は PNG そのもの。kept は参考（小数2桁）、比べるのは result と reason",
+ "params": "shared/params/whole_canvas.json",
+ "detect": {
+  "landscape": {
+   "file": "landscape.png",
+   "rect": [
+    102,
+    77,
+    820,
+    614
+   ],
+   "why": "ok"
+  },
+  "portrait": {
+   "file": "portrait.png",
+   "rect": [
+    267,
+    58,
+    490,
+    652
+   ],
+   "why": "ok"
+  },
+  "square": {
+   "file": "square.png",
+   "rect": [
+    186,
+    58,
+    652,
+    652
+   ],
+   "why": "ok"
+  },
+  "light": {
+   "file": "light.png",
+   "rect": [
+    102,
+    77,
+    820,
+    614
+   ],
+   "why": "ok"
+  },
+  "full": {
+   "file": "full.png",
+   "rect": null,
+   "why": "fill"
+  },
+  "zoomed": {
+   "file": "zoomed.png",
+   "rect": null,
+   "why": "fill"
+  },
+  "tilt1": {
+   "file": "tilt1.png",
+   "rect": null,
+   "why": "tilted"
+  },
+  "bar_overlap": {
+   "file": "bar_overlap.png",
+   "rect": null,
+   "why": "ui-overlap"
+  },
+  "ref_window": {
+   "file": "ref_window.png",
+   "rect": null,
+   "why": "tilted"
+  },
+  "step0": {
+   "file": "step0.png",
+   "rect": [
+    102,
+    77,
+    820,
+    614
+   ],
+   "why": "ok"
+  },
+  "step1": {
+   "file": "step1.png",
+   "rect": [
+    77,
+    58,
+    870,
+    652
+   ],
+   "why": "ok"
+  },
+  "step2": {
+   "file": "step2.png",
+   "rect": [
+    102,
+    77,
+    820,
+    614
+   ],
+   "why": "ok"
+  },
+  "step3": {
+   "file": "step3.png",
+   "rect": [
+    113,
+    84,
+    798,
+    600
+   ],
+   "why": "ok"
+  },
+  "step4": {
+   "file": "step4.png",
+   "rect": [
+    82,
+    61,
+    860,
+    646
+   ],
+   "why": "ok"
+  },
+  "step5": {
+   "file": "step5.png",
+   "rect": [
+    92,
+    69,
+    840,
+    630
+   ],
+   "why": "ok"
+  },
+  "other": {
+   "file": "other.png",
+   "rect": [
+    77,
+    58,
+    870,
+    652
+   ],
+   "why": "ok"
+  },
+  "filled": {
+   "file": "filled.png",
+   "rect": [
+    102,
+    77,
+    820,
+    614
+   ],
+   "why": "ok"
+  },
+  "rot90": {
+   "file": "rot90.png",
+   "rect": [
+    267,
+    58,
+    490,
+    652
+   ],
+   "why": "ok"
+  }
+ },
+ "compare": [
+  {
+   "a": "step0",
+   "b": "step1",
+   "bIsPng": false,
+   "result": "linked",
+   "kept": 0.62,
+   "reason": null
+  },
+  {
+   "a": "step1",
+   "b": "step2",
+   "bIsPng": false,
+   "result": "linked",
+   "kept": 0.7,
+   "reason": null
+  },
+  {
+   "a": "step2",
+   "b": "step3",
+   "bIsPng": false,
+   "result": "linked",
+   "kept": 0.74,
+   "reason": null
+  },
+  {
+   "a": "step3",
+   "b": "step4",
+   "bIsPng": false,
+   "result": "linked",
+   "kept": 0.85,
+   "reason": null
+  },
+  {
+   "a": "step4",
+   "b": "step5",
+   "bIsPng": false,
+   "result": "linked",
+   "kept": 0.77,
+   "reason": null
+  },
+  {
+   "a": "step2",
+   "b": "other",
+   "bIsPng": false,
+   "result": "unconfirmed",
+   "kept": 0.0,
+   "reason": "前の全体画像からの変化が大きい"
+  },
+  {
+   "a": "step1",
+   "b": "filled",
+   "bIsPng": false,
+   "result": "unconfirmed",
+   "kept": 0.0,
+   "reason": "前の全体画像からの変化が大きい"
+  },
+  {
+   "a": "step2",
+   "b": "rot90",
+   "bIsPng": false,
+   "result": "linked",
+   "kept": 0.98,
+   "reason": null
+  },
+  {
+   "a": "step5",
+   "b": "png_final",
+   "bIsPng": true,
+   "result": "linked",
+   "kept": 0.97,
+   "reason": null
+  },
+  {
+   "a": "step5",
+   "b": "png_other",
+   "bIsPng": true,
+   "result": "unconfirmed",
+   "kept": 0.0,
+   "reason": "最後の全体画像と PNG の違いが大きい"
+  }
+ ]
+}

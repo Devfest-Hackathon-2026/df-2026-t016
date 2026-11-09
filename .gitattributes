@@ -1,0 +1,3 @@
+# 鍵とテストベクタは、どの環境でも LF で取り出す（Windows の CRLF で中身が変わらないように）
+*.pem text eol=lf
+shared/vectors/*.json text eol=lf

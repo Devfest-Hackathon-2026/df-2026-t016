@@ -1,0 +1,8 @@
+{"version":1,
+ "topBarPx":35,"leftBarPx":42,
+ "ringPx":4,"bgTol":8,"ringBgMin":0.60,
+ "lineMin":0.10,"minAreaFrac":0.15,"marginPx":4,
+ "fillMin":0.85,"cornerFrac":0.02,"cornerMin":0.90,"outsideMax":0.03,
+ "norm":256,"grid":16,"drawnStd":6,"paperDiff":12,"keptDiff":6,"meanDiff":12,"corrMin":0.80,
+ "minDrawn":4,"keptMin":0.30,"aspectTol":0.04,
+ "minIntervalSec":60,"maxPerSession":120}

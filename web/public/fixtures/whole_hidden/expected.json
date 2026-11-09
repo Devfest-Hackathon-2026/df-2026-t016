@@ -1,0 +1,229 @@
+{
+ "integrity": {
+  "status": "ok",
+  "problems": []
+ },
+ "reception": {
+  "status": "completed",
+  "first": "2026-11-05T01:00:05.188Z",
+  "last": "2026-11-05T01:10:00.388Z",
+  "gaps": [],
+  "activeChunks": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   false,
+   false
+  ],
+  "editorMs": 600000,
+  "activeMs": 404500
+ },
+ "images": {
+  "start": "ok",
+  "end": "ok"
+ },
+ "match": {
+  "result": "match",
+  "score": 0.94,
+  "reason": null
+ },
+ "declaration": {
+  "text": "この作品は手描きで制作しました（AI による生成・補助は使っていません）。",
+  "acceptedAt": "2026-11-05T01:12:00.388Z"
+ },
+ "unverified": [
+  "途中の全体画像は公開されていないため、画像のハッシュは確かめていません"
+ ],
+ "whole": {
+  "shown": false,
+  "items": [
+   {
+    "seq": 10,
+    "minutes": 1,
+    "status": "hidden"
+   },
+   {
+    "seq": 30,
+    "minutes": 3,
+    "status": "hidden"
+   },
+   {
+    "seq": 50,
+    "minutes": 4,
+    "status": "hidden"
+   },
+   {
+    "seq": 70,
+    "minutes": 6,
+    "status": "hidden"
+   },
+   {
+    "seq": 90,
+    "minutes": 8,
+    "status": "hidden"
+   },
+   {
+    "seq": 110,
+    "minutes": 9,
+    "status": "hidden"
+   }
+  ],
+  "links": [
+   {
+    "from": 0,
+    "to": 1,
+    "result": "linked",
+    "kept": 0.95,
+    "reason": null
+   },
+   {
+    "from": 1,
+    "to": 2,
+    "result": "linked",
+    "kept": 0.83,
+    "reason": null
+   },
+   {
+    "from": 2,
+    "to": 3,
+    "result": "linked",
+    "kept": 0.92,
+    "reason": null
+   },
+   {
+    "from": 3,
+    "to": 4,
+    "result": "linked",
+    "kept": 0.86,
+    "reason": null
+   },
+   {
+    "from": 4,
+    "to": 5,
+    "result": "linked",
+    "kept": 0.97,
+    "reason": null
+   }
+  ],
+  "toPng": {
+   "result": "linked",
+   "kept": 1.0,
+   "reason": null
+  }
+ }
+}

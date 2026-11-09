@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://drawtrace.example/schemas/receipt.schema.json",
+  "title": "受領証",
+  "description": "サーバが作り、KMS で署名する。header はヘッダのバイト列のハッシュ。",
+  "type": "object",
+  "required": ["v", "type", "sid", "seq", "header", "receivedAt"],
+  "additionalProperties": false,
+  "properties": {
+    "v": { "const": 1 },
+    "type": { "const": "receipt" },
+    "sid": { "type": "string", "pattern": "^s_[A-Za-z0-9_-]{16}$" },
+    "seq": { "type": "integer", "minimum": 0, "maximum": 4999 },
+    "header": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "receivedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$" }
+  }
+}
